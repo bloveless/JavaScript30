@@ -16,7 +16,7 @@ build-master:
     - docker tag "$REGISTRY_URL/nginx:$CI_COMMIT_SHA" "$REGISTRY_URL/nginx:latest"
     - docker push "$REGISTRY_URL/nginx:$CI_COMMIT_SHA"
     - docker push "$REGISTRY_URL/nginx:latest"
-    - kubectl -n javascript30 set image statefulset/php nginx="$REGISTRY_URL/nginx:$CI_COMMIT_SHA"
+    - kubectl -n javascript30 set image deployment/nginx nginx="$REGISTRY_URL/nginx:$CI_COMMIT_SHA"
     - kubectl -n javascript30 rollout status -f k8s/010-nginx-deployment.yaml
   only:
     - master
