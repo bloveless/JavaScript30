@@ -16,3 +16,4 @@ spec:
             backend:
               serviceName: nginx-cluster-ip-service
               servicePort: 80
+

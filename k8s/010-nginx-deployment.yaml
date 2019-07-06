@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: registry.gitlab.com/bloveless/javascript30/nginx
+        image: gcr.io/brennon-loveless/javascript30:latest
         ports:
         - containerPort: 80
+
