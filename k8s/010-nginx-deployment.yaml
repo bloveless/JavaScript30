@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: javascript30-nginx
   namespace: javascript30
   labels:
     app: nginx
