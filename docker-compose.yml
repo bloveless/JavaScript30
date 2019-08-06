@@ -2,6 +2,7 @@ version: '3.2'
 services:
   nginx:
     build: .
+    image: 391324319136.dkr.ecr.us-east-1.amazonaws.com/javascript30-nginx
     ports:
       - "80:80"
     volumes:

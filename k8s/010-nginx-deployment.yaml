@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: gcr.io/brennon-loveless/javascript30:latest
+        image: 391324319136.dkr.ecr.us-east-1.amazonaws.com/javascript30-nginx
         ports:
         - containerPort: 80
 
