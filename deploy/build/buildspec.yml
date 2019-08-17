@@ -36,3 +36,4 @@ phases:
   post_build:
     commands:
       - kubectl -n javascript30 set image deployment/javascript30-nginx nginx=391324319136.dkr.ecr.us-west-2.amazonaws.com/javascript30-nginx:$BUILD_TIME
+      - kubectl -n javascript30 rollout status -w deployment/javascript30-nginx
