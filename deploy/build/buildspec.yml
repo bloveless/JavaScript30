@@ -16,16 +16,16 @@ phases:
       - chmod +x ./kubectl
       - mv ./kubectl /usr/local/bin/kubectl
       - cd $ORIG_DIR
-      - echo "69.169.138.37 demon-master" >> /etc/hosts
+      - echo "69.169.138.37 ubuntu-master0" >> /etc/hosts
       - echo $DEMON_KUBERNETES_CA > /tmp/demon_kubernetes_ca.crt
   pre_build:
     commands:
-      - kubectl config set-cluster demon-master --server=https://demon-master:6443
-      - kubectl config set-cluster demon-master --certificate-authority=/tmp/demon_kubernetes_ca.crt
-      - kubectl config set-cluster demon-master --insecure-skip-tls-verify=true
+      - kubectl config set-cluster ubuntu-master0 --server=https://ubuntu-master0:6443
+      - kubectl config set-cluster ubuntu-master0 --certificate-authority=/tmp/demon_kubernetes_ca.crt
+      - kubectl config set-cluster ubuntu-master0 --insecure-skip-tls-verify=true
       - kubectl config set-credentials util-sa --token $DEMON_KUBERNETES_UTIL_SA_TOKEN
-      - kubectl config set-context demon-master --cluster=demon-master --user=util-sa
-      - kubectl config use-context demon-master
+      - kubectl config set-context ubuntu-master0 --cluster=ubuntu-master0 --user=util-sa
+      - kubectl config use-context ubuntu-master0
       - kubectl version
       - $(aws ecr get-login --no-include-email --region us-west-2)
   build:
