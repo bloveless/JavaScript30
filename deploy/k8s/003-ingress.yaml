@@ -1,15 +1,14 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-service
   namespace: javascript30
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.org/redirect-to-https: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    cert-manager.io/issue-temporary-certificate: "true"
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
         - javascript30.brennonloveless.com
@@ -19,7 +18,10 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: nginx-cluster-ip-service
-              servicePort: 80
+              service:
+                name: nginx-cluster-ip-service
+                port:
+                  number: 80
 
