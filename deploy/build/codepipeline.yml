@@ -229,6 +229,8 @@ Resources:
               - Resource: '*'
                 Action:
                   - 'ecr:GetAuthorizationToken'
+                  - 'ecr:BatchGetImage'
+                  - 'ecr:GetDownloadUrlForLayer'
                 Effect: Allow
               - Resource: !Sub 'arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/javascript30-nginx'
                 Action:
